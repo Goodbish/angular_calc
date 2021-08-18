@@ -1,34 +1,34 @@
 <div class="container">
     <form class="calculator">
         <div class="calculator__result-block">
-            <input type="text" readonly class="calculator__result" *ngIf="!newNumberTrigger; else showNewNumber" value="{{ result }}">
+            <input type="text" readonly class="calculator__result" *ngIf="!data.newNumberTrigger; else showNewNumber" value="{{ data.displayNumber }}">
             <ng-template #showNewNumber>
-                <input type="text" readonly class="calculator__result" value="{{ newNumber }}">
-                <span class="calculator__current-operation">{{ currentNumber }} {{ currentOperation }}</span>
+                <input type="text" readonly class="calculator__result" value="{{ data.displayNumber }}">
+                <span class="calculator__current-operation">{{ data.result }} {{ data.currentOperation }}</span>
             </ng-template>
-            <span class="calculator__current-operation"> {{ currentOperation }}</span>
+            <span class="calculator__current-operation"> {{ data.currentOperation }}</span>
         </div>
 
         <div class="calculator__controls">
-            <span class="calculator__item calculator__operation" (click)="setOperation('C')">C</span>
-            <span class="calculator__item calculator__operation" (click)="setOperation('Del')">Del</span>
-            <span class="calculator__item calculator__operation" (click)="setOperation('%')">%</span>
-            <span class="calculator__item calculator__operation" (click)="setOperation('/')">/</span>
-            <span class="calculator__item calculator__number" (click)="getNumber(7)">7</span>
-            <span class="calculator__item calculator__number" (click)="getNumber(8)">8</span>
-            <span class="calculator__item calculator__number" (click)="getNumber(9)">9</span>
-            <span class="calculator__item calculator__operation" (click)="setOperation('X')">X</span>
-            <span class="calculator__item calculator__number" (click)="getNumber(4)">4</span>
-            <span class="calculator__item calculator__number" (click)="getNumber(5)">5</span>
-            <span class="calculator__item calculator__number" (click)="getNumber(6)">6</span>
-            <span class="calculator__item calculator__operation" (click)="setOperation('-')">-</span>
-            <span class="calculator__item calculator__number" (click)="getNumber(1)">1</span>
-            <span class="calculator__item calculator__number" (click)="getNumber(2)">2</span>
-            <span class="calculator__item calculator__number" (click)="getNumber(3)">3</span>
-            <span class="calculator__item calculator__operation" (click)="setOperation('+')">+</span>
+            <span class="calculator__item calculator__operation" (click)="data.setOperation('C')">C</span>
+            <span class="calculator__item calculator__operation" (click)="data.setOperation('Del')">Del</span>
+            <span class="calculator__item calculator__operation" (click)="data.setOperation('%')">%</span>
+            <span class="calculator__item calculator__operation" (click)="data.setOperation('/')">/</span>
+            <span class="calculator__item calculator__number" (click)="data.getNumber(7)">7</span>
+            <span class="calculator__item calculator__number" (click)="data.getNumber(8)">8</span>
+            <span class="calculator__item calculator__number" (click)="data.getNumber(9)">9</span>
+            <span class="calculator__item calculator__operation" (click)="data.setOperation('X')">X</span>
+            <span class="calculator__item calculator__number" (click)="data.getNumber(4)">4</span>
+            <span class="calculator__item calculator__number" (click)="data.getNumber(5)">5</span>
+            <span class="calculator__item calculator__number" (click)="data.getNumber(6)">6</span>
+            <span class="calculator__item calculator__operation" (click)="data.setOperation('-')">-</span>
+            <span class="calculator__item calculator__number" (click)="data.getNumber(1)">1</span>
+            <span class="calculator__item calculator__number" (click)="data.getNumber(2)">2</span>
+            <span class="calculator__item calculator__number" (click)="data.getNumber(3)">3</span>
+            <span class="calculator__item calculator__operation" (click)="data.setOperation('+')">+</span>
             <span class="calculator__item calculator__item--space"> </span>
-            <span class="calculator__item calculator__number" (click)="getNumber(0)">0</span>
-            <span class="calculator__item calculator__item--big" (click)="getValue()">=</span>
+            <span class="calculator__item calculator__number" (click)="data.getNumber(0)">0</span>
+            <span class="calculator__item calculator__item--big" (click)="data.getValue()">=</span>
         </div>
     </form>
 </div>
