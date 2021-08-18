@@ -19,27 +19,27 @@ export class CalculatorComponent implements OnInit {
   currentOperation: string = '';
   result: number = 0;
 
-  getNumber(num:number) {
+  getNumber(num: number) {
       if (this.newNumberTrigger) {
-          let currentStringNumber = String(this.newNumber);
-          let stringNumber = String(num);
-          let resultString = currentStringNumber + stringNumber;
+          const currentStringNumber = String(this.newNumber);
+          const stringNumber = String(num);
+          const resultString = currentStringNumber + stringNumber;
           this.newNumber = Number(resultString);
           this.getLogs();
       } else {
           if (this.currentOperation == 'C' || this.currentOperation == 'Del' || this.currentOperation == '%') {
               this.currentOperation = '';
           }
-          let currentStringNumber = String(this.currentNumber);
-          let stringNumber = String(num);
-          let resultString = currentStringNumber + stringNumber;
+          const currentStringNumber = String(this.currentNumber);
+          const stringNumber = String(num);
+          const resultString = currentStringNumber + stringNumber;
           this.currentNumber = Number(resultString);
           this.result = this.currentNumber;
           this.getLogs();
       }
   }
 
-  setOperation(operation:string) {
+  setOperation(operation: string) {
       switch (operation) {
           case 'C':
               this.currentNumber = 0;
@@ -82,7 +82,6 @@ export class CalculatorComponent implements OnInit {
               break;
       }
       this.currentOperation = operation;
-
       this.getLogs();
   }
 

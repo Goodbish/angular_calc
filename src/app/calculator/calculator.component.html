@@ -1,10 +1,12 @@
 <div class="container">
     <form class="calculator">
         <div class="calculator__result-block">
-            <input type="text" readonly class="calculator__result" value="{{ result }}">
-<!--            *ngIf="newNumberTrigger"-->
-<!--            <input type="text" readonly class="calculator__result" *ngIf="!newNumberTrigger" value=" {{ newNumber }}">-->
-            <span class="calculator__current-operation">{{ currentOperation }}</span>
+            <input type="text" readonly class="calculator__result" *ngIf="!newNumberTrigger; else showNewNumber" value="{{ result }}">
+            <ng-template #showNewNumber>
+                <input type="text" readonly class="calculator__result" value="{{ newNumber }}">
+                <span class="calculator__current-operation">{{ currentNumber }} {{ currentOperation }}</span>
+            </ng-template>
+            <span class="calculator__current-operation"> {{ currentOperation }}</span>
         </div>
 
         <div class="calculator__controls">
